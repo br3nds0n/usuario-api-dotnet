@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using usuario_net.Data.Context;
 using usuario_net.Data.Repository;
+using usuario_net.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,9 @@ builder.Services.AddDbContext<UsuarioContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("Default"));
 });
+
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
 var app = builder.Build();
 

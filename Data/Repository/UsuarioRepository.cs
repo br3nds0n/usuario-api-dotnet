@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using usuario_net.Data.Context;
 using usuario_net.Models;
 
@@ -17,14 +18,14 @@ namespace usuario_net.Data.Repository
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Usuario>> BuscarUsuario(int id)
+        public async Task<Usuario> BuscarUsuario(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Usuarios.Where(x => x.Id == id).FirstOrDefaultAsync();
         }
 
-        public Task<IEnumerable<Usuario>> BuscarUsuarios()
+        public async Task<IEnumerable<Usuario>> BuscarUsuarios()
         {
-            throw new NotImplementedException();
+            return await _context.Usuarios.ToListAsync();
         }
 
         public void CriarUsuario(Usuario usuario)

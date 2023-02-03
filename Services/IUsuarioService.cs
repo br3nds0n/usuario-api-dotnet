@@ -1,15 +1,13 @@
 using usuario_net.Models;
 
-namespace usuario_net.Data.Repository
+namespace usuario_net.Services
 {
-    public interface IUsuarioRepository
+    public interface IUsuarioService
     {
         Task<IEnumerable<Usuario>> BuscarUsuarios();
         Task<Usuario> BuscarUsuario(int id);
         void CriarUsuario(Usuario usuario);
         void AtualizaUsuario(Usuario usuario);
         void DeletarUsuario(Usuario usuario);
-
-        Task<bool> SaveChangesAsync();
     }
 }

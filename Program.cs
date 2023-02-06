@@ -16,6 +16,7 @@ builder.Services.AddDbContext<UsuarioContext>(options =>
 
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 

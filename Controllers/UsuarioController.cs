@@ -18,7 +18,6 @@ namespace usuario_net.Controllers
             _service = service;
         }
 
-
         [HttpGet]
         public async Task<IActionResult> BuscarUsuarios()
         {
@@ -36,7 +35,7 @@ namespace usuario_net.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> BuscarUsuario(int id)
         {
-            var usuario = await _repository.BuscarUsuario(id);
+            var usuario = await _service.BuscarUsuario(id);
             return usuario == null ? NotFound("Usuario não encontrado") : Ok(usuario);
         }
     }

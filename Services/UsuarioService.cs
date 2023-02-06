@@ -17,9 +17,9 @@ namespace usuario_net.Services
             throw new NotImplementedException();
         }
 
-        public Task<Usuario> BuscarUsuario(int id)
+        public async Task<Usuario> BuscarUsuario(int id)
         {
-            throw new NotImplementedException();
+            return await _repository.BuscarUsuario(id);
         }
 
         public async Task<IEnumerable<Usuario>> BuscarUsuarios()
